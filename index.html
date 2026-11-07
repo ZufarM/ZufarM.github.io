@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M. Zufar Taqiuddin — Fullstack Software Engineer</title>
+  <meta name="description"
+    content="Portfolio of M. Zufar Taqiuddin, Fullstack Software Engineer & DevOps (Laravel, Vue 3, Docker) based in Yogyakarta, Indonesia.">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg2: #121933;
+      --card: #161e3b;
+      --text: #e8ecf8;
+      --muted: #9aa6c7;
+      --accent: #6ea8ff;
+      --accent2: #8f7bff;
+      --border: #243056;
+      --radius: 14px;
+    }
+
+    [data-theme="light"] {
+      --bg: #f6f8fd;
+      --bg2: #eaeffa;
+      --card: #fff;
+      --text: #14193a;
+      --muted: #5a6488;
+      --accent: #2559e8;
+      --accent2: #6b4ee6;
+      --border: #dbe2f3;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 70px
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 22px
+    }
+
+    section {
+      padding: 72px 0
+    }
+
+    #about {
+      padding-top: 40px
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border)
+    }
+
+    /* nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border)
+    }
+
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px
+    }
+
+    .logo {
+      font-weight: 700;
+      color: var(--text)
+    }
+
+    .logo span {
+      color: var(--accent)
+    }
+
+    .links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      font-size: .92rem
+    }
+
+    .links a {
+      color: var(--muted)
+    }
+
+    .links a:hover {
+      color: var(--text);
+      text-decoration: none
+    }
+
+    #theme {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      font-size: 1rem
+    }
+
+    /* hero */
+    .hero {
+      padding: 96px 0 40px;
+      background: radial-gradient(800px 380px at 80% -10%, color-mix(in srgb, var(--accent2) 25%, transparent), transparent), radial-gradient(700px 360px at 0% 0%, color-mix(in srgb, var(--accent) 20%, transparent), transparent)
+    }
+
+    .hero .tag {
+      display: inline-block;
+      font-size: .82rem;
+      color: var(--accent);
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 99px;
+      margin-bottom: 18px
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 6vw, 3.6rem);
+      line-height: 1.15;
+      margin-bottom: 10px
+    }
+
+    .grad {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
+    }
+
+    .hero p.role {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 18px
+    }
+
+    .hero p.lead {
+      max-width: 680px;
+      color: var(--muted);
+      margin-bottom: 28px
+    }
+
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px
+    }
+
+    .btn {
+      padding: 11px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 9px
+    }
+
+    .btn.linkedin {
+      background: #0a66c2;
+      border-color: #0a66c2;
+      color: #fff
+    }
+
+    .btn.linkedin:hover {
+      background: #004182;
+      border-color: #004182
+    }
+
+    .btn.github {
+      background: #000;
+      border-color: #30363d;
+      color: #fff
+    }
+
+    .btn.github:hover {
+      background: #161b22;
+      border-color: #8b949e
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      flex: none
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      border-color: var(--accent)
+    }
+
+    .btn.primary {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: #fff;
+      border: none
+    }
+
+    /* cards / skills */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 12px
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px
+    }
+
+    .chip {
+      font-size: .8rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 99px;
+      color: var(--muted)
+    }
+
+    /* portfolio */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px
+    }
+
+    .filters button {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 7px 14px;
+      border-radius: 99px;
+      cursor: pointer;
+      font-size: .85rem
+    }
+
+    .filters button:hover {
+      color: var(--text);
+      border-color: var(--accent)
+    }
+
+    .filters button.active {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: #fff;
+      border-color: transparent
+    }
+
+    .works {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 18px
+    }
+
+    .work {
+      display: flex;
+      flex-direction: column;
+      transition: transform .15s, border-color .15s
+    }
+
+    .work:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent)
+    }
+
+    .work.hide {
+      display: none
+    }
+
+    .work .co {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--accent2);
+      margin-bottom: 4px
+    }
+
+    .work h3 {
+      font-size: 1.15rem;
+      margin-bottom: 2px
+    }
+
+    .work .type {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-bottom: 12px
+    }
+
+    .work ul {
+      margin: 0 0 14px 18px;
+      color: var(--muted);
+      font-size: .9rem;
+      flex: 1
+    }
+
+    .work li {
+      margin-bottom: 5px
+    }
+
+    .work li b {
+      color: var(--text)
+    }
+
+    .work .chips {
+      margin-top: auto
+    }
+
+    .shots {
+      position: relative;
+      margin: -20px -20px 16px;
+      border-radius: var(--radius) var(--radius) 0 0;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      cursor: zoom-in;
+      background: var(--bg2)
+    }
+
+    .shots img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      object-position: top left
+    }
+
+    .shots .count {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      font-size: .75rem;
+      background: rgba(0, 0, 0, .65);
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 99px
+    }
+
+    .shots img:not(:first-child) {
+      display: none
+    }
+
+    /* lightbox */
+    #lb {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: rgba(5, 8, 18, .92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px
+    }
+
+    #lb.open {
+      display: flex
+    }
+
+    #lb img {
+      max-width: 100%;
+      max-height: 88vh;
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .5)
+    }
+
+    #lb button {
+      position: absolute;
+      background: rgba(255, 255, 255, .12);
+      color: #fff;
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      cursor: pointer
+    }
+
+    #lb button:hover {
+      background: rgba(255, 255, 255, .25)
+    }
+
+    #lb .x {
+      top: 18px;
+      right: 18px
+    }
+
+    #lb .prev {
+      left: 18px;
+      top: 50%
+    }
+
+    #lb .next {
+      right: 18px;
+      top: 50%
+    }
+
+    #lb .cap {
+      position: absolute;
+      bottom: 16px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #cfd6ee;
+      font-size: .85rem
+    }
+
+    /* timeline */
+    .timeline {
+      position: relative;
+      padding-left: 26px;
+      border-left: 2px solid var(--border)
+    }
+
+    .job {
+      position: relative;
+      margin-bottom: 34px
+    }
+
+    .job::before {
+      content: "";
+      position: absolute;
+      left: -33px;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--bg)
+    }
+
+    .job h3 {
+      font-size: 1.1rem
+    }
+
+    .job .co {
+      color: var(--accent)
+    }
+
+    .job .meta {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-bottom: 10px
+    }
+
+    .job ul {
+      margin-left: 18px;
+      color: var(--muted);
+      font-size: .93rem
+    }
+
+    .job li {
+      margin-bottom: 4px
+    }
+
+    .job li b {
+      color: var(--text)
+    }
+
+    .job .projs {
+      font-size: .9rem;
+      color: var(--muted)
+    }
+
+    .job .projs a {
+      font-weight: 600
+    }
+
+    /* repos */
+    .repos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px
+    }
+
+    .repo {
+      display: block;
+      color: var(--text);
+      transition: transform .15s, border-color .15s
+    }
+
+    .repo:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      text-decoration: none
+    }
+
+    .repo h3 {
+      color: var(--accent);
+      margin-bottom: 6px
+    }
+
+    .repo p {
+      font-size: .9rem;
+      color: var(--muted);
+      margin-bottom: 12px
+    }
+
+    .lang {
+      font-size: .78rem;
+      color: var(--muted)
+    }
+
+    /* contact */
+    .contact {
+      text-align: center
+    }
+
+    .contact h2 {
+      justify-content: center
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin-bottom: 24px
+    }
+
+    .contact .btns {
+      justify-content: center
+    }
+
+    footer {
+      padding: 48px 0 24px;
+      color: var(--muted);
+      font-size: .9rem;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent2) 8%, transparent))
+    }
+
+    footer {
+      text-align: center
+    }
+
+    .foot-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      padding-bottom: 28px
+    }
+
+    .foot-brand .logo {
+      font-size: 1.2rem
+    }
+
+    .foot-brand p {
+      margin: 10px auto 0;
+      max-width: 420px
+    }
+
+    .foot-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 24px
+    }
+
+    .foot-links a {
+      color: var(--muted)
+    }
+
+    .foot-links a:hover {
+      color: var(--accent);
+      text-decoration: none
+    }
+
+    .foot-social {
+      display: flex;
+      gap: 10px
+    }
+
+    .foot-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      transition: .15s
+    }
+
+    .foot-social a:hover {
+      color: #fff;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-color: transparent;
+      transform: translateY(-2px)
+    }
+
+    .foot-social svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor
+    }
+
+    .foot-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: .82rem
+    }
+
+    .totop {
+      color: var(--muted)
+    }
+
+    .totop:hover {
+      color: var(--accent);
+      text-decoration: none
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: .6s
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: none
+    }
+
+    @media(max-width:700px) {
+      .links a:not(#theme) {
+        display: none
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none
+      }
+
+      html {
+        scroll-behavior: auto
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container">
+      <a class="logo" href="#top">zufar<span>.dev</span></a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#experience">Experience</a>
+        <a href="#github">GitHub</a>
+        <a href="#contact">Contact</a>
+        <button id="theme" aria-label="Toggle theme">☾</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container">
+      <span class="tag">📍 Sleman, DI Yogyakarta, Indonesia</span>
+      <h1>Hi, I'm <span class="grad">M. Zufar Taqiuddin</span></h1>
+      <p class="role">Fullstack Software Engineer &amp; DevOps</p>
+      <p class="lead">I design, build, and optimize large-scale enterprise systems (ERP, CRM, OMS, HRIS) with Laravel
+        and Vue 3, and ship them securely with Docker and CI/CD.</p>
+      <div class="btns">
+        <a class="btn primary" href="#portfolio">View Portfolio</a>
+        <a class="btn" href="#contact">Contact Me</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container reveal">
+      <h2>About</h2>
+      <p style="color:var(--muted);max-width:800px">Fullstack Software Engineer with 4+ years of experience designing,
+        building, and optimizing large-scale enterprise architectures. Specialized in the modern PHP/Laravel ecosystem
+        and Vue 3, with a proven track record of accelerating system throughput, orchestrating asynchronous pipelines
+        for tens of thousands of records, and eliminating high-concurrency transaction collisions. Experienced in
+        managing on-premise infrastructure, reverse proxies, and deploying secure, containerized applications via Docker
+        and CI/CD pipelines.</p>
+      <p style="color:var(--muted);margin-top:14px">🎓 Bachelor of Computer Science (S.Kom), Universitas Amikom
+        Yogyakarta, 2017–2023, GPA 3.53 / 4.00.</p>
+    </div>
+  </section>
+
+  <section id="skills" style="background:var(--bg2)">
+    <div class="container reveal">
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <div class="card">
+          <h3>⚙️ Backend</h3>
+          <div class="chips">
+            <span class="chip">PHP 7.4–8.4</span><span class="chip">Laravel 8–13</span><span class="chip">Laravel
+              Octane</span><span class="chip">FrankenPHP</span><span class="chip">RoadRunner</span><span
+              class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span
+              class="chip">REST API</span><span class="chip">Sanctum</span><span class="chip">Fortify</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>🎨 Frontend</h3>
+          <div class="chips">
+            <span class="chip">Vue 3 (Composition API)</span><span class="chip">Inertia.js</span><span
+              class="chip">TypeScript</span><span class="chip">Vite</span><span class="chip">Tailwind CSS</span><span
+              class="chip">Pinia</span><span class="chip">Axios</span><span class="chip">Bootstrap</span><span
+              class="chip">shadcn-vue</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>🚀 DevOps &amp; Infra</h3>
+          <div class="chips">
+            <span class="chip">Docker Compose</span><span class="chip">GitHub Actions</span><span
+              class="chip">Nginx</span><span class="chip">Tailscale / WireGuard</span><span
+              class="chip">Grafana</span><span class="chip">Portainer</span><span class="chip">SSH Tunneling</span><span
+              class="chip">Bash</span><span class="chip">Ubuntu Server</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>🔌 Messaging &amp; Tools</h3>
+          <div class="chips">
+            <span class="chip">RabbitMQ</span><span class="chip">Webhooks</span><span class="chip">MinIO
+              (S3)</span><span class="chip">n8n</span><span class="chip">KiriminAja API</span><span class="chip">Talenta
+              HRIS</span><span class="chip">Git</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="container reveal">
+      <h2>Portfolio by Company</h2>
+      <div class="filters" id="filters">
+        <button class="active" data-f="all">All</button>
+        <button data-f="asa">ASA Indonesia</button>
+        <button data-f="gbna">Gawe Becik Nadah Anugerah</button>
+        <button data-f="freelance">Freelance</button>
+        <button data-f="teratama">Teratama Technology</button>
+      </div>
+
+      <div class="works" id="works">
+
+        <article class="card work" data-c="asa">
+          <div class="shots" data-gallery>
+            <img src="portfolios/software-engineer/arunika/6.png" alt="Arunika shipping cost checker comparing couriers"
+              loading="lazy">
+            <img src="portfolios/software-engineer/arunika/4.png"
+              alt="Arunika create order form with selected courier, payment method, and pickup schedule" loading="lazy">
+            <img src="portfolios/software-engineer/arunika/2.png"
+              alt="Arunika orders list with status summary cards and filters" loading="lazy">
+            <span class="count">2 photos</span>
+          </div>
+          <div class="co">PT. Adanu Adhinata Semesta (ASA Indonesia)</div>
+          <h3>Arunika</h3>
+          <div class="type">High-Concurrency Order Management System</div>
+          <ul>
+            <li><b>~5 min → seconds</b> per order, including AWB generation, via KiriminAja API and real-time webhooks.
+            </li>
+            <li><b>Zero duplicate invoices</b> at peak traffic using pessimistic locking (GET_LOCK).</li>
+            <li>Faster queries with server-side pagination, indexing, and Inertia.js lazy-loading.</li>
+          </ul>
+          <div class="chips"><span class="chip">Laravel</span><span class="chip">Inertia.js</span><span
+              class="chip">KiriminAja API</span><span class="chip">Webhooks</span></div>
+        </article>
+
+        <article class="card work" data-c="asa">
+          <div class="shots" data-gallery>
+            <img src="portfolios/software-engineer/santika/3.png"
+              alt="Santika daily presence detail with check-in and check-out logs" loading="lazy">
+            <img src="portfolios/software-engineer/santika/4.png"
+              alt="Santika shift schedules list with studio and session" loading="lazy">
+            <img src="portfolios/software-engineer/santika/5.png"
+              alt="Santika organization units and unit roles hierarchy" loading="lazy">
+            <span class="count"></span>
+          </div>
+          <div class="co">PT. Adanu Adhinata Semesta (ASA Indonesia)</div>
+          <h3>Santika</h3>
+          <div class="type">Enterprise Employee Management System</div>
+          <ul>
+            <li>Daily biometric attendance logs processed with <b>&lt;2s latency</b> via custom Fingerspot webhooks.
+            </li>
+            <li>Integrated with Talenta HRIS.</li>
+            <li>Zero-downtime sync across microservices using RabbitMQ (Publisher/Consumer).</li>
+          </ul>
+          <div class="chips"><span class="chip">Laravel</span><span class="chip">RabbitMQ</span><span
+              class="chip">Webhooks</span><span class="chip">Talenta HRIS</span></div>
+        </article>
+
+        <article class="card work" data-c="asa">
+          <div class="shots" data-gallery>
+            <img src="portfolios/software-engineer/arkana/1.png"
+              alt="Arkana sales import preview showing new, changed, and identical rows" loading="lazy">
+            <img src="portfolios/software-engineer/arkana/2.png"
+              alt="Arkana sales list with customer, product, CS and advertiser, and channel columns" loading="lazy">
+            <span class="count"></span>
+          </div>
+          <div class="co">PT. Adanu Adhinata Semesta (ASA Indonesia)</div>
+          <h3>Arkana</h3>
+          <div class="type">Sales Management &amp; Analytics System</div>
+          <ul>
+            <li>Async import pipeline handling <b>&gt;10,000 rows per batch</b> with zero memory leaks.</li>
+            <li>Data-entry wait time reduced by <b>70%</b>.</li>
+            <li>Vue 3 (TypeScript) SPA with a Laravel 13 backend on Docker + FrankenPHP.</li>
+          </ul>
+          <div class="chips"><span class="chip">Vue 3</span><span class="chip">TypeScript</span><span
+              class="chip">Laravel 13</span><span class="chip">FrankenPHP</span><span class="chip">Docker</span></div>
+        </article>
+
+        <article class="card work" data-c="asa">
+          <div class="shots" data-gallery>
+            <img src="portfolios/devops/1.png"
+              alt="Portainer overview of Docker environments with container, CPU, and memory totals" loading="lazy">
+            <span class="count"></span>
+          </div>
+          <div class="co">PT. Adanu Adhinata Semesta (ASA Indonesia)</div>
+          <h3>Enterprise Infrastructure</h3>
+          <div class="type">CI/CD, Secure Networking &amp; Observability</div>
+          <ul>
+            <li>Self-hosted GitHub Actions runners; <b>50+ containerized apps</b> with multi-tenant MySQL/PostgreSQL and
+              Nginx reverse proxies.</li>
+            <li>Zero-Trust VPN mesh (Tailscale/WireGuard) and reverse SSH tunnels.</li>
+            <li>Self-hosted MinIO, RabbitMQ, n8n, Metabase, monitored with Grafana and Portainer.</li>
+          </ul>
+          <div class="chips"><span class="chip">Docker</span><span class="chip">GitHub Actions</span><span
+              class="chip">Tailscale</span><span class="chip">Grafana</span><span class="chip">Nginx</span></div>
+        </article>
+
+        <article class="card work" data-c="gbna">
+          <div class="shots" data-gallery>
+            <img src="portfolios/software-engineer/arjuna/4.jpeg"
+              alt="Arjuna CRM customer membership table with RFM level, funnel, and customer categories" loading="lazy">
+            <span class="count"></span>
+          </div>
+          <div class="co">PT. Gawe Becik Nadah Anugerah</div>
+          <h3>Arjuna</h3>
+          <div class="type">CRM &amp; Automated Broadcast Platform</div>
+          <ul>
+            <li>RabbitMQ broadcast queue and third-party gateway: <b>&gt;50,000 messages/day</b>, 98.5% delivery rate.
+            </li>
+            <li>No more UI freezes or timeouts on big imports, thanks to async queues and WebSockets (Laravel
+              Reverb/Echo).</li>
+            <li>API response <b>~250ms → &lt;60ms</b> with Laravel 11 Octane (RoadRunner) and Redis.</li>
+          </ul>
+          <div class="chips"><span class="chip">Laravel 11</span><span class="chip">Octane</span><span
+              class="chip">RabbitMQ</span><span class="chip">Redis</span><span class="chip">Reverb</span></div>
+        </article>
+
+        <article class="card work" data-c="gbna">
+          <div class="shots" data-gallery>
+            <img src="portfolios/software-engineer/semar/1.jpeg"
+              alt="Semar asset summary dashboard with KPIs and condition charts" loading="lazy">
+            <img src="portfolios/software-engineer/semar/2.jpeg"
+              alt="Semar asset detail page with QR code, barcode, and invoice" loading="lazy">
+            <img src="portfolios/software-engineer/semar/3.jpeg" alt="Semar add expense and purchase form"
+              loading="lazy">
+            <span class="count"></span>
+          </div>
+          <div class="co">PT. Gawe Becik Nadah Anugerah</div>
+          <h3>Semar</h3>
+          <div class="type">Enterprise Asset &amp; Inventory System</div>
+          <ul>
+            <li>Asset audits and stock opname <b>50% faster</b> with in-browser QR and barcode scanning.</li>
+            <li>Responsive Vue 3 SPA on a scalable FrankenPHP backend.</li>
+            <li>Strict middleware-level RBAC, fully deployed via Docker.</li>
+          </ul>
+          <div class="chips"><span class="chip">Vue 3</span><span class="chip">FrankenPHP</span><span
+              class="chip">RBAC</span><span class="chip">Docker</span></div>
+        </article>
+
+        <article class="card work" data-c="freelance">
+          <div class="co">Kaliurang Park · Freelance</div>
+          <h3>Ticketing &amp; Payment System</h3>
+          <div class="type">Tourism attraction management</div>
+          <ul>
+            <li>Integrated ticketing with secure payments, streamlining visitor admissions.</li>
+            <li>Reporting and analytics module for <b>real-time financial recaps</b> and automated operational reports.
+            </li>
+          </ul>
+          <div class="chips"><span class="chip">Fullstack</span><span class="chip">Payments</span><span
+              class="chip">Reporting</span></div>
+        </article>
+
+        <article class="card work" data-c="freelance">
+          <div class="co">Leholeh.id · Freelance</div>
+          <h3>E-commerce Backend</h3>
+          <div class="type">Authentication, transactions &amp; mobile API</div>
+          <ul>
+            <li>Patched auth vulnerabilities and added <b>Email and WhatsApp verification</b>.</li>
+            <li>Fixed critical bugs in the core transaction module, restoring end-to-end purchasing.</li>
+            <li>Debugged and optimized REST API endpoints for the mobile app.</li>
+          </ul>
+          <div class="chips"><span class="chip">REST API</span><span class="chip">Security</span><span
+              class="chip">E-commerce</span></div>
+        </article>
+
+        <article class="card work" data-c="teratama">
+          <div class="co">CV. Teratama Technology System</div>
+          <h3>IBRA v.10</h3>
+          <div class="type">Integrated Library Information System</div>
+          <ul>
+            <li>Institution-scale platform on Laravel 8, Controller-Repository pattern (<b>&gt;30 repositories, ~100
+                migrations</b>).</li>
+            <li>Reports <b>~8s → &lt;1.5s</b> on &gt;100,000 records (Yajra DataTables).</li>
+            <li>Barcode/RFID self-service kiosk cut physical queues by <b>60%</b>.</li>
+            <li>Metadata harvesting with national repositories via OAI-PMH and REST APIs.</li>
+          </ul>
+          <div class="chips"><span class="chip">Laravel 8</span><span class="chip">Yajra DataTables</span><span
+              class="chip">RFID</span><span class="chip">OAI-PMH</span></div>
+        </article>
+
+      </div>
+      <p style="margin-top:18px;font-size:.85rem;color:var(--muted)">Most of this work is for private or internal
+        company systems, so source code is not public.</p>
+    </div>
+  </section>
+
+  <section id="experience" style="background:var(--bg2)">
+    <div class="container reveal">
+      <h2>Work Experience</h2>
+      <div class="timeline">
+
+        <div class="job">
+          <h3>Fullstack Software Engineer &amp; DevOps · <span class="co">PT. Adanu Adhinata Semesta (ASA
+              Indonesia)</span></h3>
+          <div class="meta">May 2025 – Present · Yogyakarta, Indonesia</div>
+          <ul>
+            <li>Built CI/CD pipelines and managed 50+ containerized apps behind Nginx reverse proxies.</li>
+            <li>Architected a Zero-Trust VPN mesh and self-hosted service stack with real-time monitoring.</li>
+            <li>Delivered Arunika, Santika, and Arkana end to end.</li>
+          </ul>
+          <p class="projs">Projects: <a href="#portfolio" data-jump="asa">Arunika, Santika, Arkana, Infrastructure</a>
+          </p>
+        </div>
+
+        <div class="job">
+          <h3>Fullstack Web Developer · <span class="co">PT. Gawe Becik Nadah Anugerah</span></h3>
+          <div class="meta">Apr 2024 – Apr 2025 · Yogyakarta, Indonesia</div>
+          <ul>
+            <li>Built a high-volume CRM broadcast platform and cut API latency by ~76%.</li>
+            <li>Delivered an asset and inventory system with QR/barcode scanning and RBAC.</li>
+          </ul>
+          <p class="projs">Projects: <a href="#portfolio" data-jump="gbna">Arjuna, Semar</a></p>
+        </div>
+
+        <div class="job">
+          <h3>Fullstack Developer (Freelance) · <span class="co">Kaliurang Park</span></h3>
+          <div class="meta">Jan 2024 – Feb 2024 · Yogyakarta, Indonesia</div>
+          <ul>
+            <li>Engineered an integrated ticketing and secure payment system with reporting and analytics.</li>
+          </ul>
+          <p class="projs">Projects: <a href="#portfolio" data-jump="freelance">Ticketing &amp; Payment System</a></p>
+        </div>
+
+        <div class="job">
+          <h3>Backend Developer (Freelance) · <span class="co">Leholeh.id</span></h3>
+          <div class="meta">Sep 2023 – Dec 2023 · Yogyakarta, Indonesia</div>
+          <ul>
+            <li>Secured authentication, fixed critical e-commerce bugs, and optimized the mobile REST API.</li>
+          </ul>
+          <p class="projs">Projects: <a href="#portfolio" data-jump="freelance">E-commerce Backend</a></p>
+        </div>
+
+        <div class="job">
+          <h3>Fullstack Developer · <span class="co">CV. Teratama Technology System</span></h3>
+          <div class="meta">Sep 2021 – Nov 2023 · Yogyakarta, Indonesia</div>
+          <ul>
+            <li>Architected IBRA v.10, a library information system with kiosk automation and national repository
+              interoperability.</li>
+            <li>Completed my undergraduate thesis while working full-time.</li>
+          </ul>
+          <p class="projs">Projects: <a href="#portfolio" data-jump="teratama">IBRA v.10</a></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="github">
+    <div class="container reveal">
+      <h2>Personal Projects on GitHub</h2>
+      <div class="repos">
+        <a class="card repo" href="https://github.com/ZufarM/nb-classifier-fast-api" target="_blank" rel="noopener">
+          <h3>nb-classifier-fast-api</h3>
+          <p>Naive Bayes microservice for classifying a book collection.</p><span class="lang">● Python · FastAPI</span>
+        </a>
+        <a class="card repo" href="https://github.com/ZufarM/mariadb-docker-setup" target="_blank" rel="noopener">
+          <h3>mariadb-docker-setup</h3>
+          <p>Docker Compose setup for a MariaDB server with automated backups.</p><span class="lang">● Shell ·
+            Docker</span>
+        </a>
+        <a class="card repo" href="https://github.com/ZufarM/object_detection" target="_blank" rel="noopener">
+          <h3>object_detection</h3>
+          <p>Object detection experiments in Python.</p><span class="lang">● Python</span>
+        </a>
+        <a class="card repo" href="https://github.com/ZufarM/face-detections" target="_blank" rel="noopener">
+          <h3>face-detections</h3>
+          <p>Web-based face detection demo.</p><span class="lang">● HTML</span>
+        </a>
+        <a class="card repo" href="https://github.com/ZufarM/CatalogMoviesApp" target="_blank" rel="noopener">
+          <h3>CatalogMoviesApp</h3>
+          <p>Android movie catalog app.</p><span class="lang">● Java</span>
+        </a>
+        <a class="card repo" href="https://github.com/ZufarM/library_app" target="_blank" rel="noopener">
+          <h3>library_app</h3>
+          <p>Library app built with Flutter.</p><span class="lang">● Dart</span>
+        </a>
+      </div>
+      <p style="margin-top:22px"><a href="https://github.com/ZufarM?tab=repositories" target="_blank"
+          rel="noopener">View all repositories →</a></p>
+    </div>
+  </section>
+
+  <section id="contact" style="background:var(--bg2)">
+    <div class="container contact reveal">
+      <h2>Contact</h2>
+      <p>Open to job opportunities, collaborations, and freelance projects.</p>
+      <div class="btns">
+        <a class="btn linkedin" href="https://www.linkedin.com/in/m-zufar-taqiuddin-669287365/" target="_blank"
+          rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+          </svg>LinkedIn</a>
+        <a class="btn github" href="https://github.com/ZufarM" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"
+            aria-hidden="true">
+            <path
+              d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.26.8-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.19.7.8.58A12 12 0 0 0 12 .3z" />
+          </svg>GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="yr"></span> M. Zufar Taqiuddin · Yogyakarta, Indonesia</span>
+    </div>
+  </footer>
+
+  <script>
+    // theme (saved in localStorage, defaults to system preference)
+    const root = document.documentElement, themeBtn = document.getElementById('theme');
+    const initial = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    function setTheme(t) { root.dataset.theme = t; themeBtn.textContent = t === 'dark' ? '☾' : '☀'; localStorage.setItem('theme', t) }
+    setTheme(initial);
+    themeBtn.onclick = () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
+
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // portfolio filter
+    const filterBtns = document.querySelectorAll('#filters button');
+    function applyFilter(f) {
+      filterBtns.forEach(b => b.classList.toggle('active', b.dataset.f === f));
+      document.querySelectorAll('.work').forEach(w => w.classList.toggle('hide', f !== 'all' && w.dataset.c !== f));
+    }
+    filterBtns.forEach(b => b.onclick = () => applyFilter(b.dataset.f));
+    document.querySelectorAll('[data-jump]').forEach(a => a.addEventListener('click', () => applyFilter(a.dataset.jump)));
+
+    // screenshot lightbox
+    const lb = document.createElement('div');
+    lb.id = 'lb';
+    lb.innerHTML = '<button class="x" aria-label="Close">✕</button><button class="prev" aria-label="Previous">‹</button><img alt=""><button class="next" aria-label="Next">›</button><div class="cap"></div>';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img'), lbCap = lb.querySelector('.cap');
+    let set = [], idx = 0;
+    function show(i) { idx = (i + set.length) % set.length; lbImg.src = set[idx].src; lbImg.alt = set[idx].alt; lbCap.textContent = set[idx].alt + '  (' + (idx + 1) + '/' + set.length + ')' }
+    function close() { lb.classList.remove('open') }
+    document.querySelectorAll('[data-gallery]').forEach(g => {
+      const imgs = [...g.querySelectorAll('img')];
+      const label = g.querySelector('.count');
+      if (label) label.textContent = imgs.length + (imgs.length > 1 ? ' screenshots' : ' screenshot');
+      g.onclick = () => { set = imgs; show(0); lb.classList.add('open') };
+    });
+    lb.querySelector('.x').onclick = close;
+    lb.querySelector('.prev').onclick = e => { e.stopPropagation(); show(idx - 1) };
+    lb.querySelector('.next').onclick = e => { e.stopPropagation(); show(idx + 1) };
+    lb.onclick = e => { if (e.target === lb) close() };
+    addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(idx - 1);
+      if (e.key === 'ArrowRight') show(idx + 1);
+    });
+
+    // reveal on scroll
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target) } }), { threshold: .08 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+
+</html>
